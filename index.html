@@ -26,156 +26,40 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      font-weight: bold;
-      font-family: "Inter", serif;
-    }
 
-    .row {
-      height: 70vh;
-      width: 100%;
-    }
-    .qr {
-      border-radius: 4px;
-      padding: 2px;
-      border: 2px solid black;
-      width: 80px;
-      height: 80px;
-    }
-    .cards {
-      position: relative;
-      border-radius: 10px;
-      width: 50%;
-      border: 2px solid black;
-      height: 300px;
-    }
-
-    .card-pattern {
-      bottom: 0;
-      left: 0;
-      position: absolute;
-      width: 100%;
-    }
-
-    .company-name {
-      font-style: italic;
-      font-weight: bolder;
-    }
-    .name {
-      font-style: italic;
-      font-weight: bolder;
-      color: #930e12;
-    }
-
-    /*For Functionality */
-
-    .show {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-    .hidden{
-      display: none;
-    }
-  
-    .input-box{
-      display: flex;
-      visibility: hidden;
-      text-align: center;
-      flex-direction: column;
-      align-items: center;
-    }
-    .visible{
-      visibility: visible;
-  }
-
-    label{
-      padding-top: 20px;
-    }
-    input{
-      margin: 0 auto;
-      border: none;
-      border-bottom: 2px solid green;
-      width: 20%; 
-    }
-  </style>
+  <link rel="stylesheet" href="./style.css">
   <body>
-    <div class="container">
-    </div>
-
-    <div class="input-box">
-      
     
-  <label for="company-name">Company Name</label>
-  <input type="text" id="company-name" required>
-  
-  <label for="tag-line">Tag Line</label>
-  <input type="text" id="tag-line" required>
-  
-  <label for="fullName">Full Name</label>
-  <input type="text" id="fullName" required>
-  
-  <label for="role">Role</label>
-  <input type="text" id="role" required>
-  
-  <button class="add btn btn-success mt-4" type="submit" onclick="AddPost()">Add Post</button>
-  
-  </div>
+    <div class="container"></div>
+    <div class="input-box">
+      <label for="company-name">Company Name</label>
+      <input type="text" id="company-name" required />
 
-    <button class="show btn btn-danger px-5 py-3" onclick="ShowPost()">Show Post</button>
-    <script>
-       
+      <label for="tag-line">Tag Line</label>
+      <input
+        type="text"
+        id="tag-line"
+        required
+      />
 
-      function ShowPost(){
-        const showButton = document.querySelector('.show')
-        showButton.classList.add('hidden')
-        const inputBox = document.querySelector('.input-box')
-        inputBox.classList.add("visible")
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" required />
 
-      }
+      <label for="role">Role</label>
+      <input type="text" id="role" required />
 
-      const cardContainer = document.querySelector('.container')
-
+      <button
+        class="add btn btn-success mt-4"
+        type="submit"
+        onclick="AddPost()"
+      >
+        Add Post
+      </button>
+    </div>
    
-      const companyName = document.getElementById('company-name')
-      const tagLine = document.getElementById('tag-line')
-      const fullName = document.getElementById('fullName')
-      const role = document.getElementById('role')
-
-     
-      function AddPost(){
-       
-
-       cardContainer.innerHTML += `<div class="container">
-      <div class="row d-flex justify-content-center align-items-center">
-        <div class="cards d-flex justify-content-evenly p-4">
-          <div class="col-md-5 content-l text-center">
-            <h3 class="company-name">${companyName.value}</h3>
-            <p class="tagline">${tagLine.value}</p>
-            <img class="qr" src="./assets/qr.png" alt="" />
-          </div>
-
-          <div class="col-md-5 content-r">
-            <h3 class="name">${fullName.value}</h3>
-            <p class="role fw-bold">${role.value}</p>
-            <!-- <div class="icons d-flex flex-column gap-2">
-              <i class="fa-solid fa-phone"></i>
-              <i class="fa-regular fa-envelope"></i>
-              <i class="fa-solid fa-location-dot"></i>
-            </div> -->
-          </div>
-          <img class="card-pattern" src="./assets/card1.png" alt="" />
-        </div>
-      </div>
-    </div>`
-       
-      }
-        
-    </script>
+    <button class="show btn btn-danger px-5 py-3" onclick="ShowPost()">
+      Show Post
+    </button>
+    <script src="./app.js"></script>
   </body>
 </html>
